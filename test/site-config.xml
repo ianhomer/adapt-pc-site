@@ -12,9 +12,19 @@
     </intent>
 
     <!--
-        Web service end-point
+        Web service end-point for testing with a ContentTransformerConfig
+        see http://bemoko.com/wiki/Content_Transformer_Servlet_Filter
       -->
     <intent name="render" type="template" view="test.html">
+      <source name="proxy" plugin="adapt.ProxyAsWebService" scope="request">
+        <param name="contentId">content</param>
+      </source>
+    </intent>
+    
+    <!--
+        Web service mock end-point for testing
+      -->
+    <intent name="mockrender" type="template" view="test.html">
       <source name="proxy" plugin="adapt.ProxyAsWebService" scope="request">
         <param name="contentId">content</param>
       </source>

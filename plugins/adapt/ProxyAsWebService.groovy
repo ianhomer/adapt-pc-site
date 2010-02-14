@@ -35,6 +35,7 @@ class ProxyAsWebService extends Proxy {
   }
 
   void execute(Map p) {
+    log.info(p)
     if (nonMobilStatusCode > 0 && user.device.isMobile == 'false') {
       /*
        * For non-mobile devices we return a 204 so the calling process knows that it can 

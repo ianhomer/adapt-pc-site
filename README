@@ -44,4 +44,9 @@ intent called "render"
 
 and then treat this a simple HTTP interface where you pass in the HTML for 
 your PC web page as the HTTP parameter "markup" and receive the content
-suitable for rendering on a mobile device
+suitable for rendering on a mobile device.
+
+An example of using this approach to mobilise an existing web is described
+at
+
+  http://bemoko.com/wiki/Content_Transformer_Servlet_Filter
