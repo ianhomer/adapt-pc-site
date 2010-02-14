@@ -62,7 +62,7 @@ class Proxy extends AbstractPlugin {
       if (page) {
         content = page.getElementById(contentId)?.asXml()
       } else {
-        log.error("Model not loaded")
+        throw new Exception("Model not loaded")
       }
     } finally {
       /*
