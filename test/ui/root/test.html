@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>adapt-pc-site plugin test</title>
+</head>
+<body>
+  <div id="body">
+    <h1>Adapt PC site plugin test</h1>
+    [#if content.proxy?? && content.proxy.content??]
+      <div class="details">${content.proxy.content?unescaped}</div>
+    [#else]
+      <div class="error">Can't get content</div>
+    [/#if]
+  </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+Introduction
+------------
+
+This plugin demonstrates how you can readily extract content from your
+PC site and deploy as a mobile friendly mobile site.
+
+Installation
+-------------------------------------------------------------------------------
+
+* Drop adapt/Proxy.groovy in the plugins folder of your site
+
+Usage
+-------------------------------------------------------------------------------
+
+Define an intent in your bemoko site to get the content from a page of your 
+choosing and make it available to your site.  This plugin simply gets the
+content from a named HTML id in your page.  In the case of this example it
+gets the content from <div id="content">...</div>
+
+  <intent name="i" type="template" view="test.html">
+    <source name="proxy" plugin="adapt.Proxy" scope="request">
+      <param name="contentId">content</param>
+      <param name="url">http://bemoko.com/wiki/Main_Page</param>
+    </source>
+  </intent>
+
+In your rendering template access the content you "scraped" from your web
+page and render in your bemokoLive site
+
+  <div>${content.proxy.content?unescaped}</div>
+
+Advanced Usage
+-------------------------------------------------------------------------------
+
+You can use this mobilisation of content as a web service, where you pass
+in the PC content and get back the mobile content. For example, set up an 
+intent called "render"
+
+<intent name="render" type="template" view="test.html">
+  <source name="proxy" plugin="adapt.ProxyAsWebService" scope="request">
+    <param name="contentId">content</param>
+  </source>
+</intent>
+
+and then treat this a simple HTTP interface where you pass in the HTML for 
+your PC web page as the HTTP parameter "markup" and receive the content
+suitable for rendering on a mobile device

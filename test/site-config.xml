@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    adapt-pc-site plugin test site configuration file
+ -->
+<site>
+  <intents>
+    <intent name="i" type="template" view="test.html">
+      <source name="proxy" plugin="adapt.Proxy" scope="request">
+        <param name="contentId">content</param>
+        <param name="url">http://bemoko.com/wiki/Main_Page</param>
+      </source>
+    </intent>
+
+    <!--
+        Web service end-point
+      -->
+    <intent name="render" type="template" view="test.html">
+      <source name="proxy" plugin="adapt.ProxyAsWebService" scope="request">
+        <param name="contentId">content</param>
+      </source>
+      <!-- 
+          Mock parameter call to pass in markup.  In genuine usage of this
+          as a web service the value of the markup as a parameter will be
+          passed in by the web service
+          -->
+      <param name="markup">
+      &lt;?xml version="1.0" encoding="UTF-8"?>
+      &lt;!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">
+      &lt;html xmlns="http://www.w3.org/1999/xhtml">
+      &lt;head>
+        &lt;title>test content&lt;/title>
+      &lt;/head>
+      &lt;body>
+        &lt;div id="body">
+          &lt;div id="content">my content&lt;/div>
+        &lt;/div>
+      &lt;/body>
+      &lt;/html>        
+      </param>
+    </intent>
+  </intents>
+</site>
